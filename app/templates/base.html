@@ -1,0 +1,14 @@
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Sanders lunch och pizzablogg</title>
+        {% else %}
+        <title> Welcome to Sanders lunch och pizzablogg</title>
+        {% endif %}
+    </head>
+    <body>
+        <div>Sanders pizza och lunchblogg: <a href="/index">Home</a></div>
+        <hr>
+        {% block content %}{% endblock %}
+    </body>
+</html>
