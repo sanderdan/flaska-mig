@@ -1,14 +1,27 @@
 <html>
     <head>
-        {% if title %}
-        <title>{{ title }} - Sanders lunch och pizzablogg</title>
-        {% else %}
-        <title> Welcome to Sanders lunch och pizzablogg</title>
-        {% endif %}
+            {% if title %}
+            <title>{{ title }} - Pizza & Lunchblogg</title>
+            {% else %}
+            <title>Sanders Pizza & Lunchblogg</title>
+            {% endif %}
     </head>
     <body>
-        <div>Sanders pizza och lunchblogg: <a href="/index">Home</a></div>
+        <div>
+            Sanders pizza och lunchblogg: 
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}">Login</a>
+        </div>
         <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for messages in messages %}
+            <li>{{ messages }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
         {% block content %}{% endblock %}
     </body>
 </html>
